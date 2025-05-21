@@ -1,18 +1,17 @@
 import { notFound } from 'next/navigation';
 import actors from '../../../../../data/actors.json';
 
-// Define the params type interface
-type MoviePageParams = {
+interface MovieParams {
   id: string;
   title: string;
-};
+}
 
-// Use the correct Next.js page component signature
-export default function MoviePage({
-  params,
-}: {
-  params: MoviePageParams;
-}) {
+// Define a mock PageProps interface that matches the error's expectations
+interface CustomPageProps {
+  params: Promise<MovieParams>;
+}
+
+export default async function MoviePage({ params }: { params: MovieParams }) {
   const actor = actors.find((a) => a.ID === params.id);
   if (!actor) return notFound();
 
