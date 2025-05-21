@@ -1,4 +1,5 @@
-// app/actor/[id]/movie/[title]/page.tsx
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 
 import { notFound } from 'next/navigation';
 import actors from '../../../../../data/actors.json';

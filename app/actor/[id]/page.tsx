@@ -1,4 +1,5 @@
-// app/actor/[id]/page.tsx
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import actors from '../../../data/actors.json';
 import Link from 'next/link';
 
