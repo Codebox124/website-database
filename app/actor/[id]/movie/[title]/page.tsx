@@ -1,16 +1,18 @@
 import { notFound } from 'next/navigation';
 import actors from '../../../../../data/actors.json';
 
-// Use proper Next.js types for App Router pages
-type MoviePageProps = {
-  params: {
-    id: string;
-    title: string;
-  };
-  searchParams: Record<string, string | string[] | undefined>;
+// Define the params type interface
+type MoviePageParams = {
+  id: string;
+  title: string;
 };
 
-export default function MoviePage({ params }: MoviePageProps) {
+// Use the correct Next.js page component signature
+export default function MoviePage({
+  params,
+}: {
+  params: MoviePageParams;
+}) {
   const actor = actors.find((a) => a.ID === params.id);
   if (!actor) return notFound();
 
