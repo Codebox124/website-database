@@ -1,17 +1,16 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-
 import { notFound } from 'next/navigation';
 import actors from '../../../../../data/actors.json';
 
-type Props = {
+// Use proper Next.js types for App Router pages
+type MoviePageProps = {
   params: {
     id: string;
     title: string;
   };
+  searchParams: Record<string, string | string[] | undefined>;
 };
 
-export default function MoviePage({ params }: Props) {
+export default function MoviePage({ params }: MoviePageProps) {
   const actor = actors.find((a) => a.ID === params.id);
   if (!actor) return notFound();
 
